@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "~/": "./shared/",
+    "@amatiasq/scheduler": "npm:@amatiasq/scheduler@^3.0.0",
+    "@electric-sql/pglite": "npm:@electric-sql/pglite@^0.2.5",
+    "@solidjs/router": "npm:@solidjs/router@^0.14.1",
+    "dotenv": "npm:dotenv@^16.4.5",
+    "drizzle-orm": "npm:drizzle-orm@^0.31.4",
+    "postgres": "npm:postgres@^3.4.4",
+    "solid-js": "npm:solid-js@^1.8.18"
+  }
+}

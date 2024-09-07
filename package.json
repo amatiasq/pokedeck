@@ -1,0 +1,20 @@
+{
+  "name": "pokedeck",
+  "type": "module",
+  "dependencies": {
+    "@amatiasq/scheduler": "^3.0.0",
+    "@electric-sql/pglite": "^0.2.5",
+    "@solidjs/router": "^0.14.1",
+    "drizzle-orm": "^0.31.4",
+    "postgres": "^3.4.4",
+    "solid-js": "^1.8.18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "drizzle-kit": "^0.22.7",
+    "vite": "^5.4.3",
+    "vite-plugin-import-maps": "^0.1.2",
+    "vite-plugin-solid": "^2.10.2",
+    "vite-tsconfig-paths": "^5.0.1"
+  }
+}

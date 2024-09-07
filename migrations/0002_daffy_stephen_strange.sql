@@ -1,0 +1,1 @@
+ALTER TABLE "cards" ALTER COLUMN "subtypes" DROP NOT NULL;
