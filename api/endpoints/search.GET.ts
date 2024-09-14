@@ -39,11 +39,23 @@ function findCardInDb(term: string) {
 }
 
 async function findCardsInSdk(term: string) {
-  const enc = encodeURIComponent(term);
-  const url = `https://api.pokemontcg.io/v2/cards?q=name:${enc}`;
+  const enc = // encodeURIComponent(
+    term;
+  //);
+  const url = `https://api.pokemontcg.io/v2/cards?q=name:"${enc}"`;
   const response = await fetch(url);
   const content = await response.json();
-  const cards = content.data as PokemonTcgSdkCard[];
+
+  if (content.error) {
+    console.error({
+      term,
+      enc,
+      url,
+      ...content.error,
+    });
+  }
+
+  const cards = (content.data ?? []) as PokemonTcgSdkCard[];
   const result = [];
 
   for (const card of cards) {

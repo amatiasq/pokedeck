@@ -1563,7 +1563,6 @@
         "npm:drizzle-kit@^0.22.7",
         "npm:drizzle-orm@^0.31.4",
         "npm:postgres@^3.4.4",
-        "npm:ptcgo-parser@^0.8.1",
         "npm:solid-js@^1.8.18",
         "npm:vite-plugin-import-maps@^0.1.2",
         "npm:vite-plugin-solid@^2.10.2",

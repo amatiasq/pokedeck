@@ -9,6 +9,7 @@ import { Header } from '../atoms/Header';
 import { CardView } from '../components/CardView';
 import { styled } from '../css';
 import { useCard } from '../store/useCard';
+import { useCardSet } from '../store/useCardSet';
 import { useDeck } from '../store/useDeck';
 
 const MagicalHeader = styled(Header)`
@@ -129,16 +130,23 @@ export function PrintDeck() {
               <For each={deck.cards} fallback={<li>No cards</li>}>
                 {(deckCard) => (
                   <Show when={useCard(deckCard.id)()}>
-                    {(card) => (
-                      <tr>
-                        <td>{deckCard.quantity}</td>
-                        <td>{card().id}</td>
-                        <td class="card-name">{card().name}</td>
-                        <Show when={legalities()}>
-                          <td>{card().legality}</td>
-                        </Show>
-                      </tr>
-                    )}
+                    {(card) => {
+                      const set = useCardSet(card().set_id);
+
+                      return (
+                        <tr>
+                          <td>{deckCard.quantity}</td>
+                          {/* <td>{card().id}</td> */}
+                          <td>
+                            {set()?.ptcgo_code} {card().number}
+                          </td>
+                          <td class="card-name">{card().name}</td>
+                          <Show when={legalities()}>
+                            <td>{card().legality}</td>
+                          </Show>
+                        </tr>
+                      );
+                    }}
                   </Show>
                 )}
               </For>

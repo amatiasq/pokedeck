@@ -63,7 +63,7 @@ export function CardInDeck(props: {
     const value = (e.target as HTMLInputElement).value;
     const num = Number(value);
 
-    if (isNaN(num)) {
+    if (!isNaN(num)) {
       props.onQuantityChange(num);
     }
   }

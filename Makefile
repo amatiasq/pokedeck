@@ -13,6 +13,9 @@ install-deps:
 build:
 	npx vite build
 
+logs:
+	ssh amatiasq.com 'docker logs -f $(CONTAINER_NAME)'
+
 # Deployment
 
 deploy: build-image push-image pull-and-restart

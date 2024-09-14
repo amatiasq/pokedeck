@@ -50,7 +50,10 @@ export const setsRelations = relations(sets, ({ many }) => ({
 }));
 
 export type CardId = 'superpotatocardid';
-export type Card = Omit<InferSelectModel<typeof cards>, 'id'> & { id: CardId };
+export type Card = Omit<InferSelectModel<typeof cards>, 'id' | 'set_id'> & {
+  id: CardId;
+  set_id: SetId;
+};
 export const cards = pgTable('cards', {
   id: text('id').primaryKey().unique().notNull(),
   name: text('name').notNull(),

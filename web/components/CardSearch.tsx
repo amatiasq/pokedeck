@@ -59,7 +59,10 @@ export function CardSearch(props: {
   autofocus?: boolean;
   children: (card: Card) => JSX.Element;
 }) {
-  const [term, setTerm] = createSignal(location.hash.slice(1) ?? '');
+  const [term, setTerm] = createSignal(
+    decodeURIComponent(location.hash.slice(1)) ?? ''
+  );
+
   const [cards] = createResource(
     term,
     (term) =>
@@ -78,7 +81,7 @@ export function CardSearch(props: {
 
   const delay = new Scheduler(1000, () => set(input.value));
 
-  return (
+  const result = (
     <>
       <InputWrap
         class={[
@@ -100,6 +103,10 @@ export function CardSearch(props: {
       </Show>
     </>
   );
+
+  return Object.assign(result as unknown as any, {
+    force: () => input.focus(),
+  });
 
   function onGridClick() {
     if (props.closeOnClick) {
