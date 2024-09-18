@@ -27,7 +27,7 @@ const Main = styled('main')`
   gap: 1rem;
   padding: 1rem;
 
-  pd-card-search {
+  search {
     margin-bottom: 1rem;
     font-size: 1.2rem;
   }

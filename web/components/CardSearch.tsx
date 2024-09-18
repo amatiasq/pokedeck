@@ -7,7 +7,7 @@ import { CardGrid } from '../components/CardGrid.tsx';
 import { styled } from '../css.ts';
 import { cacheCard } from '../store/useCard.ts';
 
-const InputWrap = styled('pd-card-search')`
+const InputWrap = styled('search')`
   display: flex;
   align-self: stretch;
   align-items: stretch;
