@@ -23,6 +23,7 @@ const Main = styled('main')`
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
+  font-size: 0.8rem;
 
   ul {
     display: flex;
