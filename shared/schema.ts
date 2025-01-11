@@ -40,7 +40,7 @@ export const sets = pgTable('sets', {
   total: integer('total').notNull(),
   ptcgo_code: text('ptcgo_code'),
   release_date: date('release_date').notNull(),
-  updated_at: timestamp('updated_at').notNull(),
+  updated_at: text('updated_at').notNull(),
   img_symbol: text('img_symbol').notNull(),
   img_logo: text('img_logo').notNull(),
 });

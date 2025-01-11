@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.8",
-    "drizzle-kit": "^0.22.7",
+    "drizzle-kit": "^0.22.8",
     "vite": "^5.4.3",
     "vite-plugin-import-maps": "^0.1.2",
     "vite-plugin-solid": "^2.10.2",
