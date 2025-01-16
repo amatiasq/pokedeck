@@ -134,12 +134,14 @@ export function PrintDeck() {
                     {(card) => {
                       const set = useCardSet(card().set_id);
 
+                      console.log(card().set_id, set())
+
                       return (
                         <tr>
                           <td>{deckCard.quantity}</td>
                           {/* <td>{card().id}</td> */}
                           <td>
-                            {set()?.ptcgo_code} {card().number}
+                            {set()?.ptcgo_code || card().set_id} {card().number}
                           </td>
                           <td class="card-name">{card().name}</td>
                           <Show when={legalities()}>

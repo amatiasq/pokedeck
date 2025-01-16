@@ -8,7 +8,6 @@ import {
   pgTable,
   serial,
   text,
-  timestamp,
 } from 'drizzle-orm/pg-core';
 
 // GENERIC
@@ -91,7 +90,7 @@ export const sessions = pgTable('sessions', {
   id: serial('id').primaryKey().unique().notNull(),
   user_id: integer('user_id').notNull(),
   token: text('token').unique().notNull(),
-  expires_at: timestamp('expires_at').notNull(),
+  expires_at: text('expires_at').notNull(),
 });
 
 export const sessionsRelations = relations(sessions, ({ one }) => ({

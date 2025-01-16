@@ -9,13 +9,17 @@ const setters = new Map<SetId, (card: CardSet) => void>();
 export function useCardSet(id: SetId) {
   return () => {
     if (cache.has(id)) {
+      console.log('cache hit', id)
       return cache.get(id)!();
     }
 
     const [cardSet, setCardSet] = createSignal<CardSet | null>(null);
     cache.set(id, cardSet);
     setters.set(id, setCardSet);
-    loadSet(id).then(setCardSet);
+    loadSet(id).then(x => {
+      console.log('asfdaklsdjflkadsjlkasdflk', x)
+      setCardSet(x)
+  });
     return cardSet();
   };
 }
@@ -36,11 +40,15 @@ async function loadSet(id: SetId) {
     rows: [foundLocally],
   } = await sql.debug<CardSet>`SELECT * FROM ${sets} WHERE id = ${id}`;
 
+  console.log('set local', foundLocally)
+
   if (foundLocally) {
     return foundLocally;
   }
 
   const foundInApi = await api.get<CardSet>(`/set/${id}`).json();
+
+  console.log('set api', foundInApi)
 
   if (!foundInApi) {
     throw new Error('CardSet not found');

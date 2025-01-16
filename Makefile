@@ -21,7 +21,7 @@ logs:
 deploy: build-image push-image pull-and-restart
 
 build-image:
-	docker build --pull -t $(IMAGE_NAME):latest .
+	docker buildx build --platform linux/amd64 --pull -t $(IMAGE_NAME):latest .
 	docker tag $(IMAGE_NAME):latest $(IMAGE_NAME):$$(date +%Y-%m-%dT%H-%M-%S)
 
 push-image:
