@@ -1,0 +1,34 @@
+#!/bin/bash -e
+
+# amq pokedeck check — full local CI check for pokedeck.
+#
+# Mirrors .github/workflows/ci-pokedeck.yml so a green CI run and a local
+# `amq pokedeck check` cannot diverge:
+#   install deps (deno) + typecheck (deno check api/main.ts).
+#
+# Runtime: Deno. The typecheck is NON-BLOCKING: pokedeck has known pending type
+# errors, so `deno check` reports status without failing (the workflow used
+# `continue-on-error: true`). Keep it non-blocking here until they are fixed,
+# otherwise local == CI would start failing.
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  self="$(basename "$0")"
+  echo "Usage: $self"
+  echo
+  echo "Runs the full CI check for pokedeck (Deno):"
+  echo "  1. deno install"
+  echo "  2. deno check api/main.ts  (NON-BLOCKING: known pending type errors)"
+  echo
+  echo "Mirrors .github/workflows/ci-pokedeck.yml. Does nothing else."
+  exit 0
+fi
+
+echo "==> deno install"
+deno install
+
+echo "==> typecheck (deno check — non-blocking)"
+if deno check api/main.ts; then
+  echo "==> typecheck passed"
+else
+  echo "::warning:: deno check reported type errors (non-blocking, known pending)"
+fi
