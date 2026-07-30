@@ -1,7 +1,7 @@
 {
   "imports": {
     "~/": "./shared/",
-    "@amatiasq/scheduler": "npm:@amatiasq/scheduler@^3.0.0",
+    "@amatiasq/scheduler": "npm:@amatiasq/scheduler@^4.0.0",
     "@electric-sql/pglite": "npm:@electric-sql/pglite@^0.2.5",
     "@solidjs/router": "npm:@solidjs/router@^0.14.1",
     "dotenv": "npm:dotenv@^16.4.5",

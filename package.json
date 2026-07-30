@@ -2,7 +2,7 @@
   "name": "pokedeck",
   "type": "module",
   "dependencies": {
-    "@amatiasq/scheduler": "^3.0.0",
+    "@amatiasq/scheduler": "^4.0.0",
     "@electric-sql/pglite": "^0.2.5",
     "@solidjs/router": "^0.14.1",
     "drizzle-orm": "^0.45.2",
