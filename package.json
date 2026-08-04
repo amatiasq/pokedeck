@@ -7,14 +7,14 @@
     "@solidjs/router": "^0.14.1",
     "drizzle-orm": "^0.45.2",
     "postgres": "^3.4.4",
-    "solid-js": "^1.8.18"
+    "solid-js": "^1.9.14"
   },
   "devDependencies": {
     "@types/node": "^20.14.8",
     "drizzle-kit": "^0.22.8",
     "vite": "^6.4.3",
     "vite-plugin-import-maps": "^0.1.2",
-    "vite-plugin-solid": "^2.10.2",
+    "vite-plugin-solid": "^2.11.14",
     "vite-tsconfig-paths": "^5.0.1"
   }
 }
