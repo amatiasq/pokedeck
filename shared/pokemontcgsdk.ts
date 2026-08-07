@@ -212,16 +212,11 @@ function parseLegality(legalities: PokemonTcgSdkSet['legalities']): Legality {
 }
 
 function parseDate(raw: string) {
-  // if (!raw) return null;
-  //  "%Y/%m/%d"
   const [year, month, day] = raw.split('/');
-  // return new Date(Number(year), Number(month) - 1, Number(day));
   return `${year}-${month}-${day}`;
 }
 
 function parseDatetime(raw: string) {
-  // if (!raw) return null;
-  //  "%Y/%m/%d %H:%M:%S"
   const [date, time] = raw.split(' ');
   const [year, month, day] = date.split('/');
   const [hour, minute, second] = time.split(':');
@@ -233,5 +228,4 @@ function parseDatetime(raw: string) {
     Number(minute),
     Number(second)
   );
-  // return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 }

@@ -63,9 +63,6 @@ export function Decks() {
               </Link>
             )}
           </CardGrid>
-
-          {/* <For each={decks()}>
-          </For> */}
         </Main>
       </Show>
     </Show>

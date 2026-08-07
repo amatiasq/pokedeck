@@ -33,43 +33,6 @@ const Main = styled('main')`
   }
 `;
 
-// async function test() {
-//   const deck = `
-//     Pokémon: 8
-//     1 Jirachi PAR 126 PH
-//     2 Charmeleon PAF 8
-//     2 Charizard PGO 10
-//     1 Kangaskhan ex PR-SV 55
-//     1 Radiant Charizard PGO 11
-//     4 Charmander MEW 4
-//     3 Charizard ex OBF 125
-//     1 Charizard ex MEW 6
-
-//     Entrenador: 11
-//     2 Ultra Ball SVI 196
-//     2 Switch Cart ASR 154
-//     4 Rare Candy SVI 191
-//     1 Thorton LOR 167
-//     2 Jacq SVI 175
-//     4 Trekking Shoes ASR 156
-//     1 Hisuian Heavy Ball ASR 146
-//     4 Pokégear 3.0 SVI 186
-//     1 Roxanne ASR 150
-//     2 Professor's Research SVI 189
-//     2 Boss's Orders PAL 172
-
-//     Energía: 1
-//     20 Basic {R} Energy Energy 10
-
-//     Cartas totales: 60
-//   `;
-
-//   const cards = await parseDecklist(deck);
-//   console.table(cards);
-// }
-
-// test();
-
 export function Deck() {
   const navigate = useNavigate();
   const { id } = useParams() as { id: DeckId };
@@ -113,7 +76,6 @@ export function Deck() {
           {deck.name}
         </h2>
         <div>
-          {/* <a href={`/deck/${id}/print`}>Delete</a> */}
           <PrimaryLinkButton href={`/deck/${id}/print`}>
             Print →
           </PrimaryLinkButton>

@@ -40,14 +40,12 @@ async function findEndpoint(
     const dir = directories.find((x) => lower(x.name) === lower(curr));
 
     if (dir) {
-      // console.log({ path, at, dir });
       return findEndpoint(method, rest, `${at}/${dir.name}`, replacements);
     }
 
     const captureDir = directories.find((x) => /^\[.*\]$/.test(x.name));
 
     if (captureDir) {
-      // console.log({ path, at, captureDir });
       return findEndpoint(method, rest, `${at}/${captureDir.name}`, {
         ...replacements,
         [captureDir.name.slice(1, -1)]: curr,
@@ -64,7 +62,6 @@ async function findEndpoint(
     );
 
     if (exporterFile) {
-      // console.log({ path, at, exporterFile });
       return importEndpoint(
         `${at}/${exporterFile.name}`,
         replacements,
@@ -77,14 +74,12 @@ async function findEndpoint(
     );
 
     if (fileLike) {
-      // console.log({ path, at, fileLike });
       return importEndpoint(`${at}/${fileLike.name}`, replacements);
     }
 
     const exporterCapture = files.find((x) => lower(x.name).endsWith(`].ts`));
 
     if (exporterCapture) {
-      // console.log({ path, at, exporterCapture });
       return importEndpoint(
         `${at}/${exporterCapture.name}`,
         {
@@ -100,7 +95,6 @@ async function findEndpoint(
     );
 
     if (capture) {
-      // console.log({ path, at, capture });
       return importEndpoint(`${at}/${capture.name}`, {
         ...replacements,
         [capture.name.slice(1, -`].${method}.ts`.length)]: curr,
@@ -116,8 +110,6 @@ async function importEndpoint(
   replacements: Record<string, string> | null,
   exportKey: string = 'default'
 ): Promise<Endpoint> {
-  if (replacements) console.log(replacements);
-
   const mod = await import(filePath);
   const endpoint = mod[exportKey] as EndpointWithCaptures;
 

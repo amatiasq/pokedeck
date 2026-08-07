@@ -72,10 +72,7 @@ export async function parseDecklist(decklist: string) {
 
     return {
       quantity: parseInt(amount, 10),
-      // name: chunks.filter((x) => x !== 'PH').join(' '),
       tcgioId: `${setId}-${number}` as CardId,
-      // setCode,
-      // number: parseInt(number, 10),
     };
   }
 }

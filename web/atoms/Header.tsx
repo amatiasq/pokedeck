@@ -16,7 +16,6 @@ export const Header = styled('header')`
   }
 
   > :last-child {
-    // text-align: right;
     flex-direction: row-reverse;
   }
 

@@ -50,51 +50,27 @@ const Controls = styled('div')`
   }
 `;
 
-// const IconButton = styled(InvisibleButton)`
-//   align-self: flex-end;
-//   position: absolute;
-//   right: 5px;
-
-//   svg {
-//     width: 2.5em;
-//     height: 2.5em;
-//   }
-// `;
-
 export function CardView(props: {
   id: CardId;
   class?: string;
-  large?: boolean;
-  // hideZoom?: boolean;
   onClick?: (card: Card) => void;
   children?: JSX.Element;
 }) {
-  // const large = () => props.large;
-  const large = () => true;
   const card = useCard(props.id);
 
   return (
     <PdCard
-      class={[props.class, large() ? 'is-large' : ''].filter(Boolean).join(' ')}
+      class={[props.class, 'is-large'].filter(Boolean).join(' ')}
       data-id={card()?.id}
       onClick={() => card() && props.onClick?.(card()!)}
     >
       <Show when={card()}>
         {(card) => (
           <>
-            <Show when={large()} fallback={<FillImg src={card().img_thumb} />}>
-              <ScaledImage small={card().img_thumb} large={card().img_large} />
-            </Show>
+            <ScaledImage small={card().img_thumb} large={card().img_large} />
             <Controls>
               <div onClick={(event) => event.stopPropagation()}>
                 {props.children}
-                {/*
-                <Show when={!props.hideZoom}>
-                  <IconButton data-zoom onClick={zoom}>
-                    <ZoomIcon />
-                  </IconButton>
-                </Show>
-                */}
               </div>
             </Controls>
           </>
@@ -113,8 +89,3 @@ function ScaledImage(props: { small: string; large: string }) {
 
   return <FillImg src={isReady() ? props.large : props.small} />;
 }
-
-// function zoom(event: MouseEvent) {
-//   const card = (event.target as HTMLElement).closest('pd-card')!;
-//   card.classList.toggle('is-zoomed');
-// }

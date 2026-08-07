@@ -54,7 +54,6 @@ export async function POST(request: Request) {
   `;
 
   if (!user) {
-    // return new Response('Unauthorized', { status: 404 });
     const newUser = await createUser(body.email, body.password);
     return createResponse(newUser);
   }
